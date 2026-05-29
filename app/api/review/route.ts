@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';import {getDb} from '@/lib/store/db';export async function GET(){const db=getDb();return NextResponse.json(db.rawSignals.filter(s=>s.reviewStatus==='needs_review'||s.duplicateStatus==='possible_duplicate'))}

@@ -1,0 +1,2 @@
+import {describe,expect,it} from 'vitest';import {deriveDeadlineStatus} from '@/lib/deadlines/deriveDeadlineStatus';
+describe('deadlines',()=>{it('past date becomes expired',()=>{expect(deriveDeadlineStatus('2020-01-01').status).toBe('expired')});it('future parsed date becomes confirmed',()=>{expect(deriveDeadlineStatus('2030-01-01').status).toBe('confirmed')});it('missing date becomes unknown',()=>{expect(deriveDeadlineStatus(null).status).toBe('unknown')})})

@@ -1,0 +1,2 @@
+import Link from 'next/link';import {getDb} from '@/lib/store/db';
+export default function Outcomes(){const db=getDb();return <><h2 className="mb-3 text-2xl font-bold">Outcome Tracker</h2>{db.opportunities.map(o=>{const s=db.rawSignals.find(x=>x.id===o.rawSignalId);return <section className="card mb-2" key={o.id}><Link className="font-bold text-blue-700" href={`/signals/${s?.id}`}>{s?.title}</Link><p>Status: {o.status}; score {o.currentScore} {o.scoreBand}</p></section>})}</>}

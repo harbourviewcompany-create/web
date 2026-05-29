@@ -1,0 +1,1 @@
+import {test,expect} from '@playwright/test';test('outcome status persists',async({page})=>{await page.goto('/signals/sig-bakery');await page.locator('select[name=status]').selectOption('contacted');await page.getByRole('button',{name:'Save outcome'}).click();await page.reload();await expect(page.locator('select[name=status]')).toHaveValue('contacted');});

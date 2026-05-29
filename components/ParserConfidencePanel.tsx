@@ -1,0 +1,1 @@
+export default function ParserConfidencePanel({items}:{items:any[]}){return <section className="card"><h3 className="text-lg font-bold">Parser Confidence</h3><div className="flex flex-wrap gap-2">{items.map(i=><span className="badge" key={i.id}>{i.fieldName}: {i.confidence}</span>)}</div></section>}

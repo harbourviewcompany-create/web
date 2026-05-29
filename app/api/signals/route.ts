@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';import {listSignals} from '@/lib/store/signals';export async function GET(req:Request){return NextResponse.json(listSignals(Object.fromEntries(new URL(req.url).searchParams)))}

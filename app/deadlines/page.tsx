@@ -1,0 +1,2 @@
+import DeadlineCalendar from '@/components/DeadlineCalendar';import {getDb} from '@/lib/store/db';
+export default function Deadlines(){const db=getDb(); const items=db.deadlines.map(d=>{const opp=db.opportunities.find(o=>o.id===d.opportunityId);return {...d,signal:db.rawSignals.find(s=>s.id===opp?.rawSignalId)}}).sort((a,b)=>String(a.deadlineAt).localeCompare(String(b.deadlineAt))); return <><h2 className="mb-3 text-2xl font-bold">Deadline Calendar</h2><DeadlineCalendar items={items}/></>}
