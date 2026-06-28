@@ -1,0 +1,2 @@
+import {describe,expect,it} from 'vitest';import {CsvRowSchema} from '@/lib/schemas/csv';
+describe('csv validation',()=>{it('valid CSV row passes',()=>{expect(CsvRowSchema.safeParse({title:'Asset',url:'https://example.com'}).success).toBe(true)});it('missing title fails',()=>{expect(CsvRowSchema.safeParse({url:'https://example.com'}).success).toBe(false)});it('invalid URL reports row error',()=>{expect(CsvRowSchema.safeParse({title:'Asset',url:'bad'}).success).toBe(false)})})

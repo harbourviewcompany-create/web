@@ -1,0 +1,2 @@
+import FilterBar from '@/components/FilterBar';import SignalTable from '@/components/SignalTable';import {listSignals} from '@/lib/store/signals';
+export default async function Signals({searchParams}:{searchParams:Promise<Record<string,string>>}){const params=await searchParams; const rows=listSignals(params); return <><h2 className="mb-3 text-2xl font-bold">Signal Inbox</h2><FilterBar/><SignalTable rows={rows}/></>}

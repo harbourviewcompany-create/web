@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';import {importCsv} from '@/lib/store/signals';export async function POST(req:Request){const fd=await req.formData(); const f=fd.get('file') as File|null; if(!f)return NextResponse.json({error:'file required'},{status:400}); return NextResponse.json(importCsv(await f.text(),f.name));}

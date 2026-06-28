@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';import {getSignal} from '@/lib/store/signals';export async function GET(_:Request,{params}:{params:Promise<{id:string}>}){const {id}=await params; const d=getSignal(id); return d?NextResponse.json(d):NextResponse.json({error:'not found'},{status:404});}

@@ -1,0 +1,2 @@
+import type {ConfidenceLevel,DeadlineStatus} from '@/lib/types';
+export function deriveDeadlineStatus(value?:string|null):{deadlineAt:string|null;status:DeadlineStatus;confidence:ConfidenceLevel}{if(!value)return{deadlineAt:null,status:'unknown',confidence:'unknown'};const d=new Date(value);if(Number.isNaN(d.getTime()))return{deadlineAt:null,status:'unknown',confidence:'low'};return{deadlineAt:d.toISOString(),status:d.getTime()<Date.now()?'expired':'confirmed',confidence:'high'};}

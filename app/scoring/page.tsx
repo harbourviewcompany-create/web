@@ -1,0 +1,1 @@
+import {getDb} from '@/lib/store/db';export default function Scoring(){const r=getDb().scoringRules.find(x=>x.active);return <><h2 className="mb-3 text-2xl font-bold">Scoring Rules Settings</h2><section className="card"><p>Active scoring rule version: <b>{r?.version}</b> (read-only)</p><pre>{JSON.stringify(r?.weights,null,2)}</pre></section></>}

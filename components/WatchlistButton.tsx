@@ -1,0 +1,2 @@
+'use client';import {useRouter} from 'next/navigation';
+export default function WatchlistButton({id,on}:{id:string;on:boolean}){const r=useRouter();return <button className="btn" onClick={async()=>{await fetch(`/api/signals/${id}/watchlist`,{method:on?'DELETE':'POST',headers:{'content-type':'application/json'},body:JSON.stringify({notes:'Watching from detail page'})});r.refresh();}}>{on?'Remove from Watchlist':'Add to Watchlist'}</button>}

@@ -1,0 +1,1 @@
+import {getDb} from '@/lib/store/db';export default function Sources(){return <><h2 className="mb-3 text-2xl font-bold">Source Registry</h2>{getDb().sources.map(s=><section className="card mb-2" key={s.id}><b>{s.name}</b><p>{s.sourceType} · {s.jurisdictionCountry} {s.jurisdictionRegion}</p><p>{s.baseUrl}</p></section>)}</>}
